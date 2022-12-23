@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Movie/Show Details</title>
+<link rel="stylesheet" href="/css/movie.css">
+</head>
+<body>
+	<div class="movie-details-container">
+		<div class="single-movie-container">
+   			<h3>[[${movie.Title}]]</h3>
+   			<span>[[${movie.Year}]]</span>
+   			<img class="poster" th:src="@{${movie.poster}}"/>
+   	
+   		</div>
+   		
+   		<div class="movie-plot">
+   			<p>[[${movie.plot}]]</p>
+   		
+   		</div>
+	
+	</div>
+</body>
+</html>
