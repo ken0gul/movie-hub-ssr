@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+body {
+	display:flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+.single-movie-container {
+	display:flex;
+	flex-direction: column;
+	align-items:center;
+	justify-content:center;
+}
+
+.poster {
+	
+	width:150px;
+	height: 150px;
+	
+}
+
+h3{margin:0}
+
+.movie-details-container {
+	display: flex;
+	align-items:center;
+	justify-content: center;
+	width: 50%;
+	gap:20px;
+	
+	
+	border:1px solid #333;
+}
+
+.movie-plot p {
+	font-size: 12px;
+}
+
