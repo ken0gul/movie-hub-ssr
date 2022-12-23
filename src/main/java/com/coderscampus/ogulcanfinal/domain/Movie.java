@@ -1,31 +1,66 @@
 package com.coderscampus.ogulcanfinal.domain;
 
-public class Movie {
+import java.util.Arrays;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@Entity
+@Table(name = "all_movies")
+public class Movie {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@JsonProperty("Title")
 	private String title;
-	private String year;
-	private String rated;
-	private String released;
-	private String runtime;
+	@JsonProperty("Year")
+	private String Year;
+	@JsonProperty("Rated")
+	private String Rated;
+	@JsonProperty("Relesead")
+	private String Released;
+	@JsonProperty("Runtime")
+	private String Runtime;
 	private String Genre;
 	private String Director;
 	private String Writer;
+	@JsonProperty("Actors")
 	private String Actors;
+	@JsonProperty("Plot")
 	private String Plot;
+	@JsonProperty("Language")
 	private String Language;
-	private String country;
-	private String awards;
+	private String Country;
+	private String Awards;
+	@JsonProperty("Poster")
 	private String poster;
-	private Rating[] ratings;
-	private String metascore;
+	private Rating[] Ratings;
+	private String Metascore;
 	private String imdbRating;
 	private String imdbID;
-	private String type;
-	private String dvd;
-	private String boxOffice;
-	private String production;
-	private String website;
-	private String response;
+	private String imdbVotes;
+	private String Type;
+	private String DVD;
+	private String BoxOffice;
+	private String Production;
+	private String Website;
+	private String Response;
+	
+	
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getTitle() {
 		return title;
 	}
@@ -33,28 +68,28 @@ public class Movie {
 		this.title = title;
 	}
 	public String getYear() {
-		return year;
+		return Year;
 	}
 	public void setYear(String year) {
-		this.year = year;
+		Year = year;
 	}
 	public String getRated() {
-		return rated;
+		return Rated;
 	}
 	public void setRated(String rated) {
-		this.rated = rated;
+		Rated = rated;
 	}
 	public String getReleased() {
-		return released;
+		return Released;
 	}
 	public void setReleased(String released) {
-		this.released = released;
+		Released = released;
 	}
 	public String getRuntime() {
-		return runtime;
+		return Runtime;
 	}
 	public void setRuntime(String runtime) {
-		this.runtime = runtime;
+		Runtime = runtime;
 	}
 	public String getGenre() {
 		return Genre;
@@ -93,16 +128,16 @@ public class Movie {
 		Language = language;
 	}
 	public String getCountry() {
-		return country;
+		return Country;
 	}
 	public void setCountry(String country) {
-		this.country = country;
+		Country = country;
 	}
 	public String getAwards() {
-		return awards;
+		return Awards;
 	}
 	public void setAwards(String awards) {
-		this.awards = awards;
+		Awards = awards;
 	}
 	public String getPoster() {
 		return poster;
@@ -111,16 +146,16 @@ public class Movie {
 		this.poster = poster;
 	}
 	public Rating[] getRatings() {
-		return ratings;
+		return Ratings;
 	}
 	public void setRatings(Rating[] ratings) {
-		this.ratings = ratings;
+		Ratings = ratings;
 	}
 	public String getMetascore() {
-		return metascore;
+		return Metascore;
 	}
 	public void setMetascore(String metascore) {
-		this.metascore = metascore;
+		Metascore = metascore;
 	}
 	public String getImdbRating() {
 		return imdbRating;
@@ -135,41 +170,62 @@ public class Movie {
 		this.imdbID = imdbID;
 	}
 	public String getType() {
-		return type;
+		return Type;
 	}
 	public void setType(String type) {
-		this.type = type;
+		Type = type;
 	}
-	public String getDvd() {
-		return dvd;
+	public String getDVD() {
+		return DVD;
 	}
-	public void setDvd(String dvd) {
-		this.dvd = dvd;
+	public void setDVD(String dVD) {
+		DVD = dVD;
+	}
+
+	public String getImdbVotes() {
+		return imdbVotes;
+	}
+	public void setImdbVotes(String imdbVotes) {
+		this.imdbVotes = imdbVotes;
 	}
 	public String getBoxOffice() {
-		return boxOffice;
+		return BoxOffice;
 	}
 	public void setBoxOffice(String boxOffice) {
-		this.boxOffice = boxOffice;
+		BoxOffice = boxOffice;
 	}
 	public String getProduction() {
-		return production;
+		return Production;
 	}
 	public void setProduction(String production) {
-		this.production = production;
+		Production = production;
 	}
 	public String getWebsite() {
-		return website;
+		return Website;
 	}
 	public void setWebsite(String website) {
-		this.website = website;
+		Website = website;
 	}
 	public String getResponse() {
-		return response;
+		return Response;
 	}
 	public void setResponse(String response) {
-		this.response = response;
+		Response = response;
 	}
+	@Override
+	public String toString() {
+		return "Movie [Title=" + title + ", Year=" + Year + ", Rated=" + Rated + ", Released=" + Released + ", Runtime="
+				+ Runtime + ", Genre=" + Genre + ", Director=" + Director + ", Writer=" + Writer + ", Actors=" + Actors
+				+ ", Plot=" + Plot + ", Language=" + Language + ", Country=" + Country + ", Awards=" + Awards
+				+ ", Poster=" + poster + ", Ratings=" + Arrays.toString(Ratings) + ", Metascore=" + Metascore
+				+ ", imdbRating=" + imdbRating + ", imdbID=" + imdbID + ", Type=" + Type + ", DVD=" + DVD
+				+ ", boxOffice=" + BoxOffice + ", Production=" + Production + ", Website=" + Website + ", Response="
+				+ Response + "]";
+	}
+	
+	
+	
+	
 	
 	
 }
