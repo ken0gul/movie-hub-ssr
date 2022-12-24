@@ -1,11 +1,16 @@
 package com.coderscampus.ogulcanfinal.domain;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,7 +21,7 @@ public class Movie {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long movieId;
 	
 	@JsonProperty("Title")
 	private String title;
@@ -55,11 +60,15 @@ public class Movie {
 	
 	
 	
+	// OneToMany Movie-Comments
+	@OneToMany(mappedBy = "movie")
+	private List<Comment> comment;
+	
 	public Long getId() {
-		return id;
+		return movieId;
 	}
 	public void setId(Long id) {
-		this.id = id;
+		this.movieId = id;
 	}
 	public String getTitle() {
 		return title;
@@ -212,16 +221,32 @@ public class Movie {
 	public void setResponse(String response) {
 		Response = response;
 	}
+	
+	
+	
+	public Long getMovieId() {
+		return movieId;
+	}
+	public void setMovieId(Long movieId) {
+		this.movieId = movieId;
+	}
+	public List<Comment> getComment() {
+		return comment;
+	}
+	public void setComment(List<Comment> comment) {
+		this.comment = comment;
+	}
 	@Override
 	public String toString() {
-		return "Movie [Title=" + title + ", Year=" + Year + ", Rated=" + Rated + ", Released=" + Released + ", Runtime="
-				+ Runtime + ", Genre=" + Genre + ", Director=" + Director + ", Writer=" + Writer + ", Actors=" + Actors
-				+ ", Plot=" + Plot + ", Language=" + Language + ", Country=" + Country + ", Awards=" + Awards
-				+ ", Poster=" + poster + ", Ratings=" + Arrays.toString(Ratings) + ", Metascore=" + Metascore
-				+ ", imdbRating=" + imdbRating + ", imdbID=" + imdbID + ", Type=" + Type + ", DVD=" + DVD
-				+ ", boxOffice=" + BoxOffice + ", Production=" + Production + ", Website=" + Website + ", Response="
-				+ Response + "]";
+		return "Movie [movieId=" + movieId + ", title=" + title + ", Year=" + Year + ", Rated=" + Rated + ", Released="
+				+ Released + ", Runtime=" + Runtime + ", Genre=" + Genre + ", Director=" + Director + ", Writer="
+				+ Writer + ", Actors=" + Actors + ", Plot=" + Plot + ", Language=" + Language + ", Country=" + Country
+				+ ", Awards=" + Awards + ", poster=" + poster + ", Ratings=" + Arrays.toString(Ratings) + ", Metascore="
+				+ Metascore + ", imdbRating=" + imdbRating + ", imdbID=" + imdbID + ", imdbVotes=" + imdbVotes
+				+ ", Type=" + Type + ", DVD=" + DVD + ", BoxOffice=" + BoxOffice + ", Production=" + Production
+				+ ", Website=" + Website + ", Response=" + Response + ", comment=" + comment + "]";
 	}
+
 	
 	
 	
