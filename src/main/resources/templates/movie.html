@@ -16,9 +16,27 @@
    		
    		<div class="movie-plot">
    			<p>[[${movie.plot}]]</p>
+   			<p><strong>Actors</strong></br>[[${movie.actors}]]</p>
    		
    		</div>
 	
+	</div>
+	
+	<div class="comment-section">
+	<div class="comment-box">
+		<h3>Leave a comment</h3>
+		<form action="" method="post">
+		
+		<textarea rows="5" cols="20" th:field="${comment.commentText}" ></textarea></br>
+		<button type="submit">Submit</button>
+		</form>
+	</div>
+	<div class="comment_display" >
+	<div th:each="comment : ${comments}">
+		<p th:text="${comment.commentText}"></p>
+	</div>
+	
+	</div>
 	</div>
 </body>
 </html>
