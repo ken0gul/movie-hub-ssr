@@ -1,7 +1,9 @@
 package com.coderscampus.ogulcanfinal.domain;
 
 import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,11 +23,16 @@ public class User {
 	private Long userId;
 	private String username;
 	private String password;
+	
+	// Watch List
+	@ManyToMany(cascade = {CascadeType.PERSIST})
+	@JoinTable(name = "movie_user_watch", joinColumns = @JoinColumn(name = "movie_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
+	private List<Movie> watchList;
 
 	@OneToMany(mappedBy = "user")
 	private List<Comment> comments;
 
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "movie_user",
     joinColumns = @JoinColumn(name = "user_id"), 
     inverseJoinColumns = @JoinColumn(name = "movie_id"))
@@ -76,6 +83,19 @@ public class User {
 
 	public void setMovies(List<Movie> movies) {
 		this.movies = movies;
+	}
+
+	public List<Movie> getWatchList() {
+		return watchList;
+	}
+
+	public void setWatchList(List<Movie> watchList) {
+		this.watchList = watchList;
+	}
+
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", username=" + username + ", password=" + password + "]";
 	}
 	
 	
