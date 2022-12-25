@@ -33,7 +33,12 @@
 	</div>
 	<div class="comment_display" >
 	<div th:each="comment : ${comments}">
+		<div class="comment">
+		<span>[[${user.username}]]</span></br>
+		<span class="date">[[${comment.date}]]</span>
 		<p th:text="${comment.commentText}"></p>
+		</div>
+	
 	</div>
 	
 	</div>
