@@ -8,7 +8,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.coderscampus.ogulcanfinal.domain.Comment;
 import com.coderscampus.ogulcanfinal.domain.Movie;
@@ -58,11 +59,11 @@ public class UserController {
 		model.put("comment", newComment);
 
 		
-		List<Comment> allComments = commentService.findAll();
+		List<Comment> allComments = commentService.findAll(userId,movieId);
 		List<Comment> comments = commentService.findByMovieIdAndUserId(movieId,userId);
-//		List<Comment> commentsAll = commentService.findAllByMovieId(movieId);
+		System.out.println(allComments);
 		model.put("comments", comments);
-		
+		model.put("allComments", allComments);		
 		User user = userService.findById(userId);
 		model.put("user", user);
 	
@@ -82,5 +83,23 @@ public class UserController {
 		
 		
 		return "redirect:/movie/{movieId}/user/{userId}";
+	}
+	
+	
+	// Update
+	@GetMapping("/movie/{movieId}/user/{userId}/edit")
+	@ResponseBody
+	public Comment getUpdateComment(@PathVariable Long userId, Comment comment) {
+		System.out.println(comment.getCommentText());
+		return  comment;
+	}
+	
+	@PostMapping("/movie/{movieId}/user/{userId}/edit")
+	@ResponseBody
+	public Comment updateComment(@RequestBody Comment comment, Movie movie, User user) {
+		Comment foundComment = commentService.findById(comment.getId());
+		commentService.deleteComment(foundComment);
+		
+		return comment;
 	}
 }
