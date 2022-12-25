@@ -11,6 +11,9 @@ import com.coderscampus.ogulcanfinal.domain.Comment;
 @Repository
 public interface CommentRepository extends JpaRepository<Comment, Long> {
 		
-		@Query(value ="select * from comments c where c.movie_id=:movieId",nativeQuery = true )
-		List<Comment> findCommentsByMovieId(Long movieId);
+		@Query(value ="select * from comment c where movie_id=:movieId and user_id=:userId",nativeQuery = true )
+		List<Comment> findCommentsByMovieIdAndUserId(Long movieId, Long userId);
+		
+//		List<Comment> findAllByMovieId(Long movieId);
+
 }
