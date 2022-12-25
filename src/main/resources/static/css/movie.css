@@ -75,7 +75,7 @@ COMMENTS
 	
 	display:block;
 	width:250px;
-	height:100px;
+	height:125px;
 	overflow:scroll;
 	
 	
@@ -92,4 +92,13 @@ COMMENTS
 .date {
 	font-size:10px;
 }
+
+
+/*FORMS*/
+#btn-edit {
+	z-index: 1000;	
+}
+
+#update-form {display:none}
+
 
