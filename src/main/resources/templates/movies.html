@@ -17,7 +17,7 @@
    		<h3>[[${movie.Title}]]</h3>
    		<span>[[${movie.Year}]]</span>
    		<img class="poster" th:src="@{${movie.poster}}"/>
-   		<a th:href="@{/movie/{movieId}(movieId=${movie.id})}">See more!</a>
+   		<a th:href="@{/movie/{movieId}/user/{userId}(movieId=${movie.id},userId=${user.userId})}">See more!</a>
    		
    </div>
 	
