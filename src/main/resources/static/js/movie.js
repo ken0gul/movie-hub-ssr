@@ -1,54 +1,55 @@
-// Selecting elements
-let container = document.querySelector('.container');
-let input = document.querySelector('input');
-let button = document.querySelector('button');
-let movies = document.querySelector('.movies');
+/**
+ * 
+ */
 
-button.addEventListener('click',() => {
+let submitForm = document.querySelector('#submit-form');
+let updateForm = document.querySelector('#update-form');
+let commentText = document.querySelector('.comment-text');
+let movieId = document.querySelector('input[data-movie-id]');
+let userId = document.querySelector('button[data-user-id]');
+let commentId= document.querySelector('input[data-comment-id]');
+let movieEndPointId = movieId.getAttribute('data-movie-id');
+let userEndPointId=userId.getAttribute('data-user-id');
+let commentEndPointId=commentId.getAttribute('data-comment-id');
+let editBtns = document.querySelectorAll('.btn-edit');
+let updateText= document.querySelector('#update-text');
+ // FORMS EDIT - SUBMIT
+
+ editBtns.forEach(btn => {
+    btn.addEventListener('click', e=> {
+        submitForm.style.display='none';
+    updateForm.style.display='block';
+ let currentTarget = e.currentTarget.parentElement.querySelector('p');
 
 
 
-let movie = {};
-fetch(`http://www.omdbapi.com/?apikey=da216f55&t="${input.value}"`).then(response => {
-if(response.ok){
-    return response.json();
+  
+
+
+fetch(`/movie/${movieEndPointId}/user/${userEndPointId}/edit`)
+.then(response => response.json())
+.then(data => {
+    updateText.textContent = currentTarget.textContent;
+    console.log(data);
+    let comment = {
+        "id":commentEndPointId,
+        "date":data.date,
+        "commentText":updateText.textContent
+
+    }
+
+    return fetch(`/movie/${movieEndPointId}/user/${userEndPointId}/edit`, {
+        method:'POST',
+        headers:{
+            'Content-Type':'application/JSON'
+        },
+        body:JSON.stringify(comment)
+    }).then(response => response.json())
+    .then(data=> console.log(data));
+});
+        
 }
-}).then(data => {
-    console.log(data)
-   movie = data;
-   if(data.Response == 'False') return;
-   let img = `
-   <div class="single-movie-container">
-   <h3>${data.Title}</h3>
-   <span>${data.Year}</span>
-   <img class="poster" src="${data.Poster}"/>
-   <button>See more!</button>
-   </div>
-   
-   
-   
-   
-   `;
-    
-   movies.innerHTML += img;
+ )
+ })
 
-   fetch('/movies',
-   {
-
-       method:'POST',
-       headers:{
-           'Content-Type':'application/JSON'
-       },
-       body:JSON.stringify(data)
-
-
-   }
-
-
-
-).then(response => response.json()).then(data => {
-   console.log(data)
-});
-});
-})
 
