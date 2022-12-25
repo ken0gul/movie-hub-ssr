@@ -22,7 +22,11 @@ public class CommentService {
 		return commentRepository.findAll();
 	}
 	
-	public List<Comment> findByMovieId(Long movieId) {
-		return commentRepository.findCommentsByMovieId(movieId);
+	public List<Comment> findByMovieIdAndUserId(Long movieId, Long userId) {
+		return commentRepository.findCommentsByMovieIdAndUserId(movieId,userId);
 	}
+	
+//	public List<Comment> findAllByMovieId(Long movieId){
+//		return commentRepository.findAllByMovieId(movieId);
+//	}
 }
