@@ -21,9 +21,9 @@ public class MovieService {
 	public List<Movie> findAll() {
 		return movieRepository.findAll();
 	}
-	
-	
-	public Movie findById(Long id) {
-		return movieRepository.findById(id).orElse(null);
+
+	public Movie findById(Long movieId) {
+		// TODO Auto-generated method stub
+		return movieRepository.findById(movieId).orElse(new Movie());
 	}
 }
