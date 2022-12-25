@@ -68,4 +68,11 @@ public class Comment {
 		this.date = date;
 	}
 
+	@Override
+	public String toString() {
+		return "Comment [id=" + id + ", commentText=" + commentText + ", date=" + date + "]";
+	}
+
+
+
 }
