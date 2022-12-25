@@ -1,10 +1,12 @@
 package com.coderscampus.ogulcanfinal.service;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.coderscampus.ogulcanfinal.domain.Movie;
 import com.coderscampus.ogulcanfinal.domain.User;
 import com.coderscampus.ogulcanfinal.repository.UserRepository;
 
@@ -25,4 +27,8 @@ public class UserService {
 	public List<User> findAll() {
 		return userRepository.findAll();
 	}
+	
+//	public Set<Movie> findAllByUserId(Long userId) {
+//		return userRepository.findAllByUserId(userId);
+//	}
 }
