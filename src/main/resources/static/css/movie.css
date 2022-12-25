@@ -71,8 +71,25 @@ COMMENTS
 .comment_display {
 	margin-top: 20px;
 	margin-left: 10px;
+	
+	
 	display:block;
+	width:250px;
+	height:100px;
+	overflow:scroll;
+	
+	
 }
 
+.comment {
+	border:1px solid #333;
+}
 
+.comment span:first-child {
+	font-weight: bold;
+}
+
+.date {
+	font-size:10px;
+}
 
