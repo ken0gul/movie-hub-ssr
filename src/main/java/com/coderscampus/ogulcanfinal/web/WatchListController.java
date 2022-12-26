@@ -52,7 +52,7 @@ public class WatchListController {
 		Long movieId = movie.getId();
 		Movie movieFound = movieService.findById(movieId);
 //		List<Movie> movieSet = new ArrayList<>();
-		List<Movie> watchList =  user.getWatchList();
+		Set<Movie> watchList =  user.getWatchList();
 		watchList.add(movieFound);
 		
 		user.setWatchList(watchList);
