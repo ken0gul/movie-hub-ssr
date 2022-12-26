@@ -26,11 +26,9 @@ public class Movie {
 	private Long movieId;
 	
 	@ManyToMany(mappedBy="watchList",cascade = {CascadeType.PERSIST})
-//	@JoinTable(name = "movie_user_watch", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "movie_id"))
 	private List<User> watchListUsers = new ArrayList<>();
 	
 	@ManyToMany(mappedBy="movies",cascade = CascadeType.ALL)
-//	@JoinTable(name = "movie_user", joinColumns = @JoinColumn(name = "movie_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
 	private List<User> users = new ArrayList<>();
 
 	@JsonProperty("Title")
