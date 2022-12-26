@@ -27,7 +27,7 @@ public class User {
 	// Watch List
 	@ManyToMany(cascade = {CascadeType.PERSIST})
 	@JoinTable(name = "movie_user_watch", joinColumns = @JoinColumn(name = "movie_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
-	private List<Movie> watchList;
+	private Set<Movie> watchList;
 
 	@OneToMany(mappedBy = "user")
 	private List<Comment> comments;
@@ -85,11 +85,11 @@ public class User {
 		this.movies = movies;
 	}
 
-	public List<Movie> getWatchList() {
+	public Set<Movie> getWatchList() {
 		return watchList;
 	}
 
-	public void setWatchList(List<Movie> watchList) {
+	public void setWatchList(Set<Movie> watchList) {
 		this.watchList = watchList;
 	}
 
