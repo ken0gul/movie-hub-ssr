@@ -13,17 +13,17 @@ public class MovieService {
 
 	@Autowired
 	private MovieRepository movieRepository;
-	
+
 	public Movie saveMovie(Movie movie) {
 		return movieRepository.save(movie);
 	}
-	
+
 	public List<Movie> findAll() {
 		return movieRepository.findAll();
 	}
 
 	public Movie findById(Long movieId) {
-		// TODO Auto-generated method stub
 		return movieRepository.findById(movieId).orElse(new Movie());
 	}
+
 }
