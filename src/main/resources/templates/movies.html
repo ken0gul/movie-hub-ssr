@@ -6,11 +6,12 @@
 <link rel="stylesheet" href="/css/movies.css">
 </head>
 <body>
-	<h1>Movies</h1>
-	
+	<div class="header">
+	<h1>Movies/Shows</h1>
 	<label>Search movies</label>
 	<input type="text">
 	<button id="search-btn" type="button">Search</button>
+	</div>
 	
 	<div class="movies">
 	<div class="single-movie-container" th:each="movie : ${movies}">
