@@ -30,7 +30,6 @@ public class WatchListController {
 	public String getUser(@PathVariable Long userId, ModelMap model) {
 		User user = userService.findById(userId);
 		model.put("user", user);
-		System.out.println(user);
 		return "user";
 	}
 
@@ -38,7 +37,6 @@ public class WatchListController {
 	public String postToDo(Movie movie, @PathVariable Long userId) {
 
 		User user = userService.findById(userId);
-		System.out.println("Found User Post TO Do: " + user);
 		Long movieId = movie.getId();
 		Movie movieFound = movieService.findById(movieId);
 		Set<Movie> watchList = user.getWatchList();
@@ -49,7 +47,6 @@ public class WatchListController {
 		List<User> userList = new ArrayList<>();
 		userList.add(user);
 		movieFound.setUsers(userList);
-		System.out.println("User" + user);
 		userService.save(user);
 		return "redirect:/user/{userId}";
 	}
