@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+.section-container{
+	display: flex;
+	justify-content: space-around;
+}
+
+h3 {text-align: center}
+
+
+.to-watch-container{
+	display: flex;
+	flex-direction: column;
+}
+
+.to-watch-list {
+	display: flex;
+	align-items:center;
+	justify-content:center;
+	gap:15px;
+}
+
+.watched-btn{
+	font-size:12px;
+	padding:2px 10px;
+}
