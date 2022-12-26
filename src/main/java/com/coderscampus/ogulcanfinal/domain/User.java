@@ -25,12 +25,17 @@ public class User {
 	private String password;
 	
 	// Watch List
-	@ManyToMany(cascade = {CascadeType.PERSIST})
-	@JoinTable(name = "movie_user_watch", joinColumns = @JoinColumn(name = "movie_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
+	@ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+	@JoinTable(name = "movie_user_watch", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "movie_id"))
 	private Set<Movie> watchList;
 
 	@OneToMany(mappedBy = "user")
+	
 	private List<Comment> comments;
+	
+	// Watched Movies
+	@OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+	private List<Movie> watchedList;
 
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "movie_user",
@@ -91,6 +96,15 @@ public class User {
 
 	public void setWatchList(Set<Movie> watchList) {
 		this.watchList = watchList;
+	}
+	
+
+	public List<Movie> getWatchedList() {
+		return watchedList;
+	}
+
+	public void setWatchedList(List<Movie> watchedList) {
+		this.watchedList = watchedList;
 	}
 
 	@Override
