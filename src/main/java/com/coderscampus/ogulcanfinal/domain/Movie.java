@@ -10,10 +10,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -24,6 +23,10 @@ public class Movie {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long movieId;
+	
+	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+	@JoinColumn(name = "user_id")
+	private User user;
 	
 	@ManyToMany(mappedBy="watchList",cascade = {CascadeType.PERSIST})
 	private List<User> watchListUsers = new ArrayList<>();
@@ -300,6 +303,23 @@ public class Movie {
 
 	public void setComment(List<Comment> comment) {
 		this.comment = comment;
+	}
+
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public List<User> getWatchListUsers() {
+		return watchListUsers;
+	}
+
+	public void setWatchListUsers(List<User> watchListUsers) {
+		this.watchListUsers = watchListUsers;
 	}
 
 	@Override
