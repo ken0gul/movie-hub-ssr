@@ -28,9 +28,6 @@ public class WatchListController {
 	@Autowired
 	private MovieService movieService;
 
-	@Autowired
-	private CommentService commentService;
-
 	@GetMapping("/user/{userId}")
 	public String getUser(@PathVariable Long userId, ModelMap model) {
 		User user = userService.findById(userId);
@@ -38,26 +35,19 @@ public class WatchListController {
 		System.out.println(user);
 		return "user";
 	}
-//	
-//	@GetMapping("/user/{userId}/movie/{movieId}")
-//	public String getToWatch(ModelMap model) {
-//		return "user";
-//	}
 
 	@PostMapping("/user/{userId}")
 	public String postToDo(Movie movie, @PathVariable Long userId) {
-		
+
 		User user = userService.findById(userId);
-		System.out.println("Found User Post TO Do: " + user );
+		System.out.println("Found User Post TO Do: " + user);
 		Long movieId = movie.getId();
 		Movie movieFound = movieService.findById(movieId);
-//		List<Movie> movieSet = new ArrayList<>();
-		Set<Movie> watchList =  user.getWatchList();
+		Set<Movie> watchList = user.getWatchList();
 		watchList.add(movieFound);
-		
+
 		user.setWatchList(watchList);
-		
-		
+
 		List<User> userList = new ArrayList<>();
 		userList.add(user);
 		movieFound.setUsers(userList);
