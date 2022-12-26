@@ -23,54 +23,35 @@ import com.coderscampus.ogulcanfinal.service.UserService;
 public class UserController {
 	@Autowired
 	private UserService userService;
-	
+
 	@Autowired
 	private MovieService movieService;
-	
+
 	@Autowired
 	private CommentService commentService;
 
-//	@GetMapping("/movie/{movieId}/user/{userId}")
-//	public String getUser(@PathVariable Long userId, ModelMap model, @PathVariable Long movieId) {
-//		User user = userService.findById(userId);
-//		model.put("user", user);
-//		
-//		Movie foundMovie = movieService.findById(movieId);
-//		model.put("movie", foundMovie);
-//		return "user";
-//	}
-//	
-	
-	
-	
-	
-	
-	
 	@GetMapping("/movie/{movieId}/user/{userId}")
-	public String getMovie(ModelMap model,@PathVariable Long movieId, @PathVariable Long userId) {
+	public String getMovie(ModelMap model, @PathVariable Long movieId, @PathVariable Long userId) {
 		Movie foundMovie = movieService.findById(movieId);
 		model.put("movie", foundMovie);
-		
-		
+
 //		CommentModel newComment = new CommentModel();
 //		model.put("comment", newComment);
-		
+
 		Comment newComment = new Comment();
 		model.put("comment", newComment);
 
-		
-		List<Comment> allComments = commentService.findAll(userId,movieId);
-		List<Comment> comments = commentService.findByMovieIdAndUserId(movieId,userId);
+		List<Comment> allComments = commentService.findAll(userId, movieId);
+		List<Comment> comments = commentService.findByMovieIdAndUserId(movieId, userId);
 		System.out.println(allComments);
 		model.put("comments", comments);
-		model.put("allComments", allComments);		
+		model.put("allComments", allComments);
 		User user = userService.findById(userId);
 		model.put("user", user);
-	
-		
+
 		return "movie";
 	}
-	
+
 	@PostMapping("/movie/{movieId}/user/{userId}")
 	public String postComment(Comment newComment, Movie movie, User user) {
 		System.out.println(movie);
@@ -78,28 +59,27 @@ public class UserController {
 		comment.setUser(user);
 		comment.setMovie(movie);
 		comment.setCommentText(newComment.getCommentText());
-		
+
 		Comment savedComment = commentService.saveComment(comment);
-		
-		
+
 		return "redirect:/movie/{movieId}/user/{userId}";
 	}
-	
-	
+
 	// Update
 	@GetMapping("/movie/{movieId}/user/{userId}/edit")
 	@ResponseBody
 	public Comment getUpdateComment(@PathVariable Long userId, Comment comment) {
 		System.out.println(comment.getCommentText());
-		return  comment;
+		return comment;
 	}
-	
+
 	@PostMapping("/movie/{movieId}/user/{userId}/edit")
 	@ResponseBody
 	public Comment updateComment(@RequestBody Comment comment, Movie movie, User user) {
 		Comment foundComment = commentService.findById(comment.getId());
 		commentService.deleteComment(foundComment);
-		
+
 		return comment;
 	}
+
 }
