@@ -5,6 +5,21 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>Users</h2>
+	<h2>Welcome [[${user.username}]]</h2>
+	<section class="section-container">
+		<h3>To-Watch List</h3>
+	<div class="to-watch-container">
+		<div >
+			<div th:each="movie : ${user.getWatchList()}">
+			<ul>
+				<li>[[${movie.title}]]</li>
+			</ul>
+			</div>
+		
+		</div>
+	</div>
+	
+	</section>
+	
 </body>
 </html>
