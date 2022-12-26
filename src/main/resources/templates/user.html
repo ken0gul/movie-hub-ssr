@@ -3,23 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="/css/watched.css">
 </head>
 <body>
 	<h2>Welcome [[${user.username}]]</h2>
 	<section class="section-container">
-		<h3>To-Watch List</h3>
 	<div class="to-watch-container">
+		<h3>To-Watch List</h3>
 		<div >
+	
 			<div th:each="movie : ${user.getWatchList()}">
-			<ul>
-				<li>[[${movie.title}]]</li>
+			<form class="to-watch-list" th:action="@{/user/{userId}/delete(userId=${user.userId})}" method="get">
+			<ul th:attr="data-user-id=${user.userId}">
+			
+				<li th:attr="data-movie-id=${movie.movieId}">[[${movie.title}]]</li>
 			</ul>
+				<button class="watched-btn" type="button">Watched</button>
+			</form>
 			</div>
 		
 		</div>
 	</div>
 	
-	</section>
+	<div class="watched-container">
 	
+		<h3>Movies Already Watched</h3>
+		<ul th:each="movie : ${movies}">
+		<li>[[${movie.title}]]</li>
+		
+		</ul>
+	</div>
+	
+	</section>
+	<script type="text/javascript" src="/js/watched.js"></script>
 </body>
 </html>
