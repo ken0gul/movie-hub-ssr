@@ -1,7 +1,6 @@
 package com.coderscampus.ogulcanfinal.web;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.coderscampus.ogulcanfinal.domain.Movie;
 import com.coderscampus.ogulcanfinal.domain.User;
-import com.coderscampus.ogulcanfinal.service.CommentService;
 import com.coderscampus.ogulcanfinal.service.MovieService;
 import com.coderscampus.ogulcanfinal.service.UserService;
 
