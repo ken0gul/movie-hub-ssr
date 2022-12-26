@@ -17,9 +17,12 @@
    		<div class="movie-plot">
    			<p>[[${movie.plot}]]</p>
    			<p><strong>Actors</strong></br>[[${movie.actors}]]</p>
-   		
+   			<form th:action="@{/user/{userId}(userId=${user.userId})}" method="post">
+   			<input type="hidden" th:field="${movie.movieId}">
+			<button type="submit">Add to watch list</button>
+		</form>
    		</div>
-	
+		
 	</div>
 	
 	<div class="comment-section">
