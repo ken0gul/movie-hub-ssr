@@ -14,6 +14,8 @@ body {
 	margin-bottom:30px;
 	text-align: center;
 	color:white;
+	
+	position:relative;
 }
 
 input {
@@ -42,6 +44,11 @@ input:hover {
 
 
 h1 {color:#d61313;}
+
+
+.movies {
+	padding: 15px 0;
+}
 
 .movie-title {
 	color:#f69f09;
@@ -90,10 +97,21 @@ h1 {color:#d61313;}
 	color:#fff;
 	border:none;
 	padding:0 12px;
-	 
 	
+}
+
+#account-icon {
+	width:24px;
+	position:absolute;
+	right:0;
+	top:0;
+	transform: translate(-50%,50%);
+	color:white;
 	
-	
+}
+
+.account-link:link {
+	text-decoration: none;
 }
 
 #see-more-link:link {
