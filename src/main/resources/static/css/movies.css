@@ -16,10 +16,14 @@ body {
 	color:white;
 }
 
+h1 {color:#8b0000;}
+
 
 .poster{
 	width: 150px;
 	height: 150px;
+	
+	margin-bottom:5px;
 	
 }
 
@@ -33,6 +37,14 @@ body {
 	
 }
 
+#see-more-link:link {
+	text-decoration: none;
+	color:whitesmoke;
+	
+}
+#see-more-link:hover {
+	color: red;
+}
 
 .single-movie-container {
 	display:flex;
@@ -40,6 +52,7 @@ body {
 	align-items:center;
 	justify-content:center;
 	
+
 	box-shadow: 3px 2px 12px red;
 	color:white;
 }
