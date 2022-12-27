@@ -16,9 +16,43 @@ body {
 	color:white;
 }
 
-h1 {color:#8b0000;}
+input {
+	all:unset;
+	background-color:#fafaf9;
+	color:black;
+	font-size:14px;
+	width:40%;
+	height:20px;
+	
+	
+}
+
+input::placeholder {
+	font-size:11px;
+	font-style:italic;
+}
+
+input:focus {
+	border:1px solid red;
+}
+
+input:hover {
+	border:1px solid red;
+}
 
 
+h1 {color:#d61313;}
+
+.movie-title {
+	color:#f69f09;
+}
+
+.movie-year {
+	background: linear-gradient(90deg, rgba(246,56,9,1) 50%, rgba(255,255,255,0.4206057422969187) 100%);
+	border-radius:5px;
+	padding:3px 7px;
+	margin-bottom:5px;
+}
 .poster{
 	width: 150px;
 	height: 150px;
@@ -33,6 +67,31 @@ h1 {color:#8b0000;}
 	grid-template-columns: repeat(4,1fr);
 	justify-content: center;
 	gap:20px;
+	
+	
+}
+
+.search-container {
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	gap:5px;
+	
+	
+}
+#search-icon {
+	width:24px;
+	height: 24px;
+	
+}
+
+#search-btn{
+	background-color: #f03e3e;
+	color:#fff;
+	border:none;
+	padding:0 12px;
+	 
+	
 	
 	
 }
@@ -54,10 +113,15 @@ h1 {color:#8b0000;}
 	
 
 	box-shadow: 3px 2px 12px red;
+	padding:10px 0;
+	border-radius:11px;
 	color:white;
+	transition: all 0.9s;
 }
 
-
+.single-movie-container:hover{
+	scale:1.1;
+}
 
 
 
