@@ -133,3 +133,18 @@ COMMENTS
 	color:#fff;
 	padding:2px 5px;
 }
+
+.add-to-list-btn {
+	color:white;
+	background:black;
+	border:0;
+	border-radius:3px;
+	box-shadow:inset 3px 5px 12px #f63809;
+	padding:2px 4px;
+}
+.add-to-list-btn:hover {
+	color:black;
+	background-color:white;
+	
+}
+
