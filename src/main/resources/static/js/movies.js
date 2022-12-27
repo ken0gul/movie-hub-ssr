@@ -11,11 +11,14 @@ let movies = document.querySelector('.movies');
 
 
 
-searchBtn.addEventListener('click',() => {
+searchBtn.addEventListener('click',getData)
+input.addEventListener('keydown', e => {
+	console.log(e)
+	if(e.keyCode == '13') getData();
 
-
-
-let movie = {};
+});
+function getData(){
+    let movie = {};
 fetch(`http://www.omdbapi.com/?apikey=da216f55&t="${input.value}"`).then(response => {
 if(response.ok){
     return response.json();
@@ -57,5 +60,4 @@ if(response.ok){
    window.location.reload();
 });
 });
-})
-
+}
