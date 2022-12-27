@@ -11,10 +11,23 @@ body {
 	align-items: center;
 	justify-content: center;
 	
+	background-color: black;
+	
 	
 }
 
-
+.container {
+	margin-top:5%;
+}
+.movie-title {
+	color:#f69f09;
+}
+.movie-year {
+	background: linear-gradient(90deg, rgba(246,56,9,1) 50%, rgba(255,255,255,0.4206057422969187) 100%);
+	border-radius:5px;
+	padding:3px 7px;
+	margin-bottom:5px;
+}
 .single-movie-container {
 	display:flex;
 	flex-direction: column;
@@ -42,8 +55,13 @@ h3{margin:0}
 	border:1px solid #333;
 }
 
+
+.movie-plot {align-self:flex-end;}
+
 .movie-plot p {
 	font-size: 12px;
+	color:white;
+	line-height: 1.4;
 }
 
 
@@ -58,6 +76,7 @@ COMMENTS
 	width: 450px;
 	
 	display: flex;
+	color:white;
 	
 }
 
@@ -74,7 +93,7 @@ COMMENTS
 	
 	
 	display:block;
-	width:250px;
+	width:360px;
 	height:125px;
 	overflow:scroll;
 	
@@ -95,10 +114,22 @@ COMMENTS
 
 
 /*FORMS*/
-#btn-edit {
-	z-index: 1000;	
+.btn-edit {
+	
+	background-color:none;
+	border:0;
+	all:unset;
+	font-size:11px;
+	cursor:pointer;
+	
 }
-
+.btn-edit:hover {
+	color:red;
+}
 #update-form {display:none}
 
-
+.submit-btn {
+	background-color: #f63809;
+	color:#fff;
+	padding:2px 5px;
+}
