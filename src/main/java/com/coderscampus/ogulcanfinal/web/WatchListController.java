@@ -53,9 +53,9 @@ public class WatchListController {
 
 		List<User> userList = new ArrayList<>();
 		userList.add(user);
-//		movieFound.setUsers(userList);
+		movieFound.setUsers(userList);
 		userService.save(user);
-		
+		movieService.saveMovie(movieFound);
 		return "redirect:/user/{userId}";
 	}
 	
