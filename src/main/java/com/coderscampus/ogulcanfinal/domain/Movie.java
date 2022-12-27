@@ -45,7 +45,8 @@ public class Movie {
 	@JsonProperty("Runtime")
 	private String Runtime;
 	private String Genre;
-	private String Director;
+	@JsonProperty("Director")
+	private String director;
 	private String Writer;
 	@JsonProperty("Actors")
 	private String Actors;
@@ -130,11 +131,11 @@ public class Movie {
 	}
 
 	public String getDirector() {
-		return Director;
+		return director;
 	}
 
 	public void setDirector(String director) {
-		Director = director;
+		this.director = director;
 	}
 
 	public String getWriter() {
@@ -325,7 +326,7 @@ public class Movie {
 	@Override
 	public String toString() {
 		return "Movie [movieId=" + movieId + ", title=" + title + ", Year=" + Year + ", Rated=" + Rated + ", Released="
-				+ Released + ", Runtime=" + Runtime + ", Genre=" + Genre + ", Director=" + Director + ", Writer="
+				+ Released + ", Runtime=" + Runtime + ", Genre=" + Genre + ", Director=" + director + ", Writer="
 				+ Writer + ", Actors=" + Actors + ", Plot=" + Plot + ", Language=" + Language + ", Country=" + Country
 				+ ", Awards=" + Awards + ", poster=" + poster + ", Ratings=" + Arrays.toString(Ratings) + ", Metascore="
 				+ Metascore + ", imdbRating=" + imdbRating + ", imdbID=" + imdbID + ", imdbVotes=" + imdbVotes
