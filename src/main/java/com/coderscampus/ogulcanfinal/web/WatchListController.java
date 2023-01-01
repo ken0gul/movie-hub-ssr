@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,6 +34,12 @@ public class WatchListController {
 
 	@GetMapping("/user/{userId}")
 	public String getUser(@PathVariable Long userId, ModelMap model) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		User authenticatedUser = (User)authentication.getPrincipal();
+		
+		if(!authenticatedUser.getUserId().equals(userId)) {
+			return "redirect:/login?logout";
+		}
 		User user = userService.findById(userId);
 		model.put("user", user);
 		List<Movie> watchedMovies = user.getWatchedList();
