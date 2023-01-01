@@ -15,6 +15,9 @@ let editBtns = document.querySelectorAll('.btn-edit');
 let updateText= document.querySelector('#update-text');
  // FORMS EDIT - SUBMIT
 
+
+
+
  editBtns.forEach(btn => {
     btn.addEventListener('click', e=> {
         submitForm.style.display='none';
