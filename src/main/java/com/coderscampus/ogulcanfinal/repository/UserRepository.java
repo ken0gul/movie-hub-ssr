@@ -18,4 +18,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	@Transactional
 	@Query(value="delete from movie_user_watch m where m.movie_id=:movieId",nativeQuery = true)
 	 void deleteMovieByMovieIdFromMovieUserWatch(Long movieId);
+	
+	User findByUsername(String username);
 }
