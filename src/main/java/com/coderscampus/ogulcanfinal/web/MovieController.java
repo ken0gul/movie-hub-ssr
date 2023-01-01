@@ -28,7 +28,7 @@ public class MovieController {
 	@Autowired
 	private UserService userService;
 	
-	@GetMapping
+	@GetMapping("")
 	public String rootPage() {
 		return "redirect:/movies";
 	}
@@ -45,7 +45,7 @@ public class MovieController {
 		System.out.println(authenticatedUser);
 		
 		if(authenticatedUser.getUserId() == null) {
-			return "redirect:/login?logout";
+			return "movies";
 		}
 			
 
