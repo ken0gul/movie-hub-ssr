@@ -5,65 +5,70 @@
 	padding: 0;
 }
 
+html {
+	font-family: 'Inter', sans-serif;
+}
+
 body {
-	display:flex;
-	flex-direction:column;
+	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	
 	background-color: black;
-	
-	
 }
 
 .container {
-	margin-top:5%;
+	margin-top: 5%;
 }
+
 .movie-title {
-	color:#f69f09;
+	color: #f69f09;
 }
+
 .movie-year {
-	background: linear-gradient(90deg, rgba(246,56,9,1) 50%, rgba(255,255,255,0.4206057422969187) 100%);
-	border-radius:5px;
-	padding:3px 7px;
-	margin-bottom:5px;
+	background: linear-gradient(90deg, rgba(246, 56, 9, 1) 50%,
+		rgba(255, 255, 255, 0.4206057422969187) 100%);
+	border-radius: 5px;
+	padding: 3px 7px;
+	margin-bottom: 5px;
 }
+
 .single-movie-container {
-	display:flex;
+	display: flex;
 	flex-direction: column;
-	align-items:center;
-	justify-content:center;
+	align-items: center;
+	justify-content: center;
 }
 
 .poster {
-	
-	width:150px;
-	height: 150px;
-	
+	width: 200px;
+	height: 200px;
+	border-radius: 3px;
 }
 
-h3{margin:0}
+h3 {
+	margin: 0
+}
 
 .movie-details-container {
 	display: flex;
-	align-items:center;
+	align-items: center;
 	justify-content: center;
 	width: 450px;
-	gap:20px;
-	
-	
-	border:1px solid #333;
+	gap: 20px;
+	padding: 5px;
 }
 
-
-.movie-plot {align-self:flex-end;}
+.movie-plot {
+	align-self: flex-end;
+}
 
 .movie-plot p {
-	font-size: 12px;
-	color:white;
+	font-family:inherit;
+	font-size: 11px;
+	color: white;
 	line-height: 1.4;
 }
-
 
 /**
 
@@ -71,80 +76,109 @@ h3{margin:0}
 COMMENTS
 
 **/
-
 .comment-section {
 	width: 450px;
-	
 	display: flex;
-	color:white;
-	
+	color: white;
 }
 
-.comment-box{
+.comment-box {
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	
 }
 
 .comment_display {
 	margin-top: 20px;
 	margin-left: 10px;
-	
-	
-	display:block;
-	width:360px;
-	height:125px;
-	overflow:scroll;
+	display: block;
+	width: 360px;
+	height: 125px;
+	overflow: scroll;
+	font-size:12px;
 	
 	
 }
 
 .comment {
-	border:1px solid #333;
+
+	background:#222;
+	border-bottom: 10px solid black;
 }
 
 .comment span:first-child {
 	font-weight: bold;
 }
 
-.date {
-	font-size:10px;
+#commentText {
+	background:transparent;
+	color:grey;
 }
 
+.date {
+	font-size: 10px;
+}
 
 /*FORMS*/
 .btn-edit {
-	
-	background-color:none;
-	border:0;
-	all:unset;
-	font-size:11px;
-	cursor:pointer;
-	
+	background-color: none;
+	border: 0;
+	all: unset;
+	font-size: 11px;
+	cursor: pointer;
 }
+
 .btn-edit:hover {
-	color:red;
+	color: red;
 }
-#update-form {display:none}
+
+#update-form {
+	display: none
+}
 
 .submit-btn {
 	background-color: #f63809;
-	color:#fff;
-	padding:2px 5px;
+	color: #fff;
+	padding: 2px 5px;
+	border: 0;
+	border-radius: 3px;
+}
+
+.submit-btn:hover {
+	background: black;
+	color: white;
+	cursor: pointer;
 }
 
 .add-to-list-btn {
-	color:white;
-	background:black;
-	border:0;
-	border-radius:3px;
-	box-shadow:inset 3px 5px 12px #f63809;
-	padding:2px 4px;
-}
-.add-to-list-btn:hover {
-	color:black;
-	background-color:white;
-	
+	color: white;
+	background: black;
+	border: 0;
+	border-radius: 3px;
+	box-shadow: inset 3px 5px 12px #f63809;
+	padding: 2px 4px;
+	cursor: pointer;
 }
 
+.add-to-list-btn:hover {
+	color: black;
+	background-color: white;
+}
+
+
+.comment_display::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color:#333;
+}
+
+.comment_display::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+.comment_display::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+}
