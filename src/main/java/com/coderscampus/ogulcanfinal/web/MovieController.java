@@ -28,7 +28,7 @@ public class MovieController {
 	@Autowired
 	private UserService userService;
 	
-	@GetMapping("/")
+	@GetMapping
 	public String rootPage() {
 		return "redirect:/movies";
 	}
