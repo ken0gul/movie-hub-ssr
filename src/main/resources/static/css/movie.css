@@ -6,7 +6,7 @@
 }
 
 html {
-	font-family: 'Inter', sans-serif;
+	font-family: 'Ubuntu', sans-serif;
 }
 
 body {
@@ -65,9 +65,10 @@ h3 {
 
 .movie-plot p {
 	font-family:inherit;
-	font-size: 11px;
+	font-size: 10px;
 	color: white;
 	line-height: 1.4;
+	margin-bottom: 5px;
 }
 
 /**
