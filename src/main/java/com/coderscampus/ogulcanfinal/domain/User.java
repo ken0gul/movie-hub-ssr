@@ -1,10 +1,14 @@
 package com.coderscampus.ogulcanfinal.domain;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,8 +25,29 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long userId;
+	@Column(nullable = false, unique = true)
 	private String username;
 	private String password;
+	
+	// Authorities
+	
+	@ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+	@JoinTable(name = "user_roles",joinColumns = @JoinColumn(
+			name="user_id", referencedColumnName = "userId"
+			),
+			inverseJoinColumns = @JoinColumn(
+					name="role_id",referencedColumnName = "id"
+					)
+	
+			
+			
+			)
+	private Set<Authorities> authorities = new HashSet<>();
+	
+	
+	
+	
+	
 	
 	// Watch List
 	@ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
@@ -111,6 +136,37 @@ public class User {
 	public String toString() {
 		return "User [userId=" + userId + ", username=" + username + ", password=" + password + "]";
 	}
+	
+	
+
+	public Set<Authorities> getAuthorities() {
+		return authorities;
+	}
+
+	public void setAuthorities(Set<Authorities> authorities) {
+		this.authorities = authorities;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(userId);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		return Objects.equals(userId, other.userId);
+	}
+	
+	
+	
+	
 	
 	
 }
