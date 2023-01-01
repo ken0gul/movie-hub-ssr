@@ -4,9 +4,16 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="/css/watched.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-	<h2>Welcome [[${user.username}]]</h2>
+	<div class="header">
+	<h2>Welcome <span class="h2-span">[[${user.username}]]</span></h2>
+	<div class="header-links">
+	<a href="/login?logout">Log out</a>
+	<a class="link-home" href="/movies">&larr;</a>
+	</div>
+	</div>
 	<section class="section-container">
 	<div class="to-watch-container">
 		<h3>To-Watch List</h3>
@@ -16,9 +23,9 @@
 			<form class="to-watch-list" th:action="@{/user/{userId}/delete(userId=${user.userId})}" method="get">
 			<ul th:attr="data-user-id=${user.userId}">
 			
-				<li th:attr="data-movie-id=${movie.movieId}">[[${movie.title}]]</li>
+				<li th:attr="data-movie-id=${movie.movieId}"><span>[[${movie.title}]]</span></li>
 			</ul>
-				<button class="watched-btn" type="button">Watched</button>
+				<button class="watched-btn" type="button">&check;</button>
 			</form>
 			</div>
 		
