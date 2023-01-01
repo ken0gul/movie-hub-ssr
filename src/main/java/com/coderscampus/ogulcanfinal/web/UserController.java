@@ -3,6 +3,8 @@ package com.coderscampus.ogulcanfinal.web;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,6 +34,13 @@ public class UserController {
 
 	@GetMapping("/movie/{movieId}/user/{userId}")
 	public String getMovie(ModelMap model, @PathVariable Long movieId, @PathVariable Long userId) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		User authenticatedUser = (User)authentication.getPrincipal();
+		System.out.println("Auth User: " + authenticatedUser);
+		System.out.println("User Id: " + userId);
+		if(!authenticatedUser.getUserId().equals(userId)) {
+			return "redirect:/login?logout";
+		}
 		Movie foundMovie = movieService.findById(movieId);
 		model.put("movie", foundMovie);
 
@@ -81,5 +90,7 @@ public class UserController {
 
 		return comment;
 	}
+	
+	
 
 }
