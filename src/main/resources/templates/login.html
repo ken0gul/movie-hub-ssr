@@ -3,23 +3,103 @@
 <head>
 <meta charset="UTF-8">
 <title>Login</title>
-<link rel="stylesheet" href="/css/login.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+
+<style type="text/css">
+html {
+	background: black;
+	color: white;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+form>div {
+	display: flex;
+	flex-direction: column;
+	margin-bottom:5px;
+}
+
+.buttons {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	gap: 5px;
+	margin-top: 5px;
+}
+
+button {
+	background-color: #e50914;
+	text-decoration: none;
+	color: white;
+	border: 1px solid transparent;
+	border-radius: 5px;
+	cursor:pointer;
+}
+
+button:hover{
+background-color:#FA7D83;
+scale:1.05;
+}
+
+.btn-register {
+	border: 1px solid grey;
+	background-color: #E6BB09;
+}
+
+input {
+	background: #121212;
+	color:white;
+	outline: gray;
+	
+	padding:0.3em;
+}
+
+label{
+	font-size:10px;
+}
+
+input:focus {
+	border:1px solid #e50914;
+}
+</style>
+
+
 </head>
 <body>
 
-	<form action="" method="post">
-		<div>
-			<label for="username">Username:</label>
-			<input type="text" id="username" name="username">
-		</div>
-		
-		<div>
-			<label for="password">Password:</label>
-			<input type="password" id="password" name="password"> 
-		</div>
-		<button type="submit">Login</button>
-		<a href="/users/register">Register</a>
-	
-	</form>
+	<div>
+		<form th:action="@{/login}" method="post">
+			<div>
+				<label for="username">Username:</label> <input type="text"
+					id="username" name="username">
+			</div>
+
+			<div>
+				<label for="password">Password:</label> <input type="password"
+					id="password" name="password">
+			</div>
+			<div class="buttons">
+				<button type="submit">Login</button>
+				<a th:href="@{/users/register}"><button type="button"
+						class="btn-register">Register</button></a>
+
+			</div>
+
+		</form>
+	</div>
 </body>
 </html>
