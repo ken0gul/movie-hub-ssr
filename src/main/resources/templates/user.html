@@ -10,7 +10,7 @@
 	<section class="section-container">
 	<div class="to-watch-container">
 		<h3>To-Watch List</h3>
-		<div >
+		<div class="to-watch">
 	
 			<div th:each="movie : ${user.getWatchList()}">
 			<form class="to-watch-list" th:action="@{/user/{userId}/delete(userId=${user.userId})}" method="get">
