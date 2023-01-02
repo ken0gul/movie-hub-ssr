@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,11 +14,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
-
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"Title"}))
 public class Movie {
 
 	@Id
@@ -35,6 +38,7 @@ public class Movie {
 	private List<User> users = new ArrayList<>();
 
 	@JsonProperty("Title")
+	@Column(unique = true)
 	private String title;
 	@JsonProperty("Year")
 	private String Year;
@@ -83,7 +87,7 @@ public class Movie {
 	}
 
 	public String getTitle() {
-		return title;
+		return this.title;
 	}
 
 	public void setTitle(String title) {
@@ -323,15 +327,8 @@ public class Movie {
 		this.watchListUsers = watchListUsers;
 	}
 
-	@Override
-	public String toString() {
-		return "Movie [movieId=" + movieId + ", title=" + title + ", Year=" + Year + ", Rated=" + Rated + ", Released="
-				+ Released + ", Runtime=" + Runtime + ", Genre=" + Genre + ", Director=" + director + ", Writer="
-				+ Writer + ", Actors=" + Actors + ", Plot=" + Plot + ", Language=" + Language + ", Country=" + Country
-				+ ", Awards=" + Awards + ", poster=" + poster + ", Ratings=" + Arrays.toString(Ratings) + ", Metascore="
-				+ Metascore + ", imdbRating=" + imdbRating + ", imdbID=" + imdbID + ", imdbVotes=" + imdbVotes
-				+ ", Type=" + Type + ", DVD=" + DVD + ", BoxOffice=" + BoxOffice + ", Production=" + Production
-				+ ", Website=" + Website + ", Response=" + Response + ", comment=" + comment + "]";
-	}
+
+
+
 
 }
