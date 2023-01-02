@@ -2,6 +2,9 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Registration</title>
 
 <style type="text/css">
@@ -28,7 +31,7 @@ form {
 form>div {
 	display: flex;
 	flex-direction: column;
-	margin-bottom:5px;
+	margin-bottom: 5px;
 }
 
 .buttons {
@@ -46,12 +49,12 @@ button {
 	color: white;
 	border: 1px solid transparent;
 	border-radius: 5px;
-	cursor:pointer;
+	cursor: pointer;
 }
 
-button:hover{
-background-color:#FA7D83;
-scale:1.05;
+button:hover {
+	background-color: #FA7D83;
+	scale: 1.05;
 }
 
 .btn-register {
@@ -61,18 +64,17 @@ scale:1.05;
 
 input {
 	background: #121212;
-	color:white;
+	color: white;
 	outline: gray;
-	
-	padding:0.3em;
+	padding: 0.3em;
 }
 
-label{
-	font-size:10px;
+label {
+	font-size: 10px;
 }
 
 input:focus {
-	border:1px solid #e50914;
+	border: 1px solid #e50914;
 }
 </style>
 </head>
@@ -80,17 +82,17 @@ input:focus {
 
 	<div class="container">
 		<form action="" method="post">
-		<div>
-		<label>Username: </label>
-		<input type="text" th:field="${user.username}">
-		</div>
-		
-		<div>
-		<label>Password: </label>
-		<input type="password" th:field="${user.password}">
-		</div>
-		
-		<button type="submit">Register</button>
+			<div>
+				<label>Username: </label> <input type="text"
+					th:field="${user.username}">
+			</div>
+
+			<div>
+				<label>Password: </label> <input type="password"
+					th:field="${user.password}">
+			</div>
+
+			<button type="submit">Register</button>
 		</form>
 	</div>
 </body>

@@ -1,46 +1,55 @@
 <!DOCTYPE html>
 <html xmlns:th="http://tymeleaf.org">
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
 <link rel="stylesheet" href="/css/watched.css">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap"
+	rel="stylesheet">
 </head>
 <body>
 	<div class="header">
-	<h2>Welcome <span class="h2-span">[[${user.username}]]</span></h2>
-	<div class="header-links">
-	<a href="/login?logout">Log out</a>
-	<a class="link-home" href="/movies">&larr;</a>
-	</div>
-	</div>
-	<section class="section-container">
-	<div class="to-watch-container">
-		<h3>To-Watch List</h3>
-		<div class="to-watch">
-	
-			<div th:each="movie : ${user.getWatchList()}">
-			<form class="to-watch-list" th:action="@{/user/{userId}/delete(userId=${user.userId})}" method="get">
-			<ul th:attr="data-user-id=${user.userId}">
-			
-				<li th:attr="data-movie-id=${movie.movieId}"><span>[[${movie.title}]]</span></li>
-			</ul>
-				<button class="watched-btn" type="button">&check;</button>
-			</form>
-			</div>
-		
+		<h2>
+			Welcome <span class="h2-span">[[${user.username}]]</span>
+		</h2>
+		<div class="header-links">
+			<a href="/login?logout">Log out</a> <a class="link-home"
+				href="/movies">&larr;</a>
 		</div>
 	</div>
-	
-	<div class="watched-container">
-	
-		<h3>Movies Already Watched</h3>
-		<ul th:each="movie : ${movies}">
-		<li>[[${movie.title}]]</li>
-		
-		</ul>
-	</div>
-	
+	<section class="section-container">
+		<div class="to-watch-container">
+			<h3>To-Watch List</h3>
+			<div class="to-watch">
+
+				<div th:each="movie : ${user.getWatchList()}">
+					<form class="to-watch-list"
+						th:action="@{/user/{userId}/delete(userId=${user.userId})}"
+						method="get">
+						<ul th:attr="data-user-id=${user.userId}">
+
+							<li th:attr="data-movie-id=${movie.movieId}"><span>[[${movie.title}]]</span></li>
+						</ul>
+						<button class="watched-btn" type="button">&check;</button>
+					</form>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="watched-container">
+
+			<h3>Movies Already Watched</h3>
+			<ul th:each="movie : ${movies}">
+				<li>[[${movie.title}]]</li>
+
+			</ul>
+		</div>
+
 	</section>
 	<script type="text/javascript" src="/js/watched.js"></script>
 </body>
