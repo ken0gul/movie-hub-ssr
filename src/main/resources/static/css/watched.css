@@ -9,7 +9,7 @@ body {
 	color: white;
 	
 	margin:0;
-	height:100vh;
+	
 }
 
 
@@ -22,10 +22,11 @@ body {
 	justify-content: space-between;
 }
 
-h2{margin-left:5px;}
+h2{font-size:36px;margin-left:5px;}
 
 .h2-span {
 	color:red;
+	
 }
 
 .header-links {
@@ -33,28 +34,35 @@ h2{margin-left:5px;}
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: flex-end;
+	
 }
 
 .header a:link {
-	font-size:5px;
+	
 	text-decoration: none;
 	font-size: 11px;
 	color:white;
 	margin-right:5px;
 }
 
+.link-logout:link {
+	font-size: 26px !important;
+}
 .header a:link:hover{
 	color:red;
 }
 
 .link-home:link{
-	font-size:24px !important;
+	font-size:54px !important;
+	
 }
 
 .section-container{
 	display: flex;
 	justify-content: space-around;
 	overflow-y:scroll; 
+	height:100vh;
+	font-size: 130%;
 }
 
 .section-container::-webkit-scrollbar-track

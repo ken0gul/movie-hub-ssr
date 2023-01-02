@@ -9,6 +9,7 @@
 body {
 	background-color: black;
 	margin:0 20px;
+	height:100vh;
 }
 .header {
 	margin-bottom:30px;
@@ -24,13 +25,13 @@ input {
 	color:black;
 	font-size:14px;
 	width:40%;
-	height:20px;
+	height:40px;
 	
 	
 }
 
 input::placeholder {
-	font-size:11px;
+	font-size:16px;
 	font-style:italic;
 }
 
@@ -43,7 +44,7 @@ input:hover {
 }
 
 
-h1 {color:#d61313;}
+h1 {font-size:64px;color:#d61313;}
 
 
 .movies {
@@ -51,6 +52,7 @@ h1 {color:#d61313;}
 }
 
 .movie-title {
+	font-size:26px;
 	text-align:center;
 	color:#f69f09;
 }
@@ -62,8 +64,8 @@ h1 {color:#d61313;}
 	margin-bottom:5px;
 }
 .poster{
-	width: 150px;
-	height: 150px;
+	width: 275px;
+	height: 275px;
 	
 	margin-bottom:5px;
 	
@@ -77,6 +79,18 @@ h1 {color:#d61313;}
 	gap:20px;
 	
 	
+}
+
+@media screen and (max-width:967px){
+	.movies{
+	grid-template-columns:repeat(2,1fr);
+	}
+}
+
+@media screen and (max-width:730px){
+	.movies{
+	grid-template-columns:repeat(1,1fr);
+	}
 }
 
 .search-container {
@@ -113,9 +127,11 @@ h1 {color:#d61313;}
 
 .account-link:link {
 	text-decoration: none;
+	
 }
 
 #see-more-link:link {
+	font-size:26px;
 	text-decoration: none;
 	color:whitesmoke;
 	
