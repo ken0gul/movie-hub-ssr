@@ -19,7 +19,7 @@ input.addEventListener('keydown', e => {
 });
 function getData(){
     let movie = {};
-fetch(`http://www.omdbapi.com/?apikey=da216f55&t="${input.value}"`).then(response => {
+fetch(`https://www.omdbapi.com/?apikey=da216f55&t="${input.value}"`).then(response => {
 if(response.ok){
     return response.json();
 }
