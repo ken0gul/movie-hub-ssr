@@ -94,6 +94,77 @@ h3 {
 	
 	
 }
+
+@media screen and (max-width:769px){
+	.movie-details-container {
+	flex-direction: column;
+	width:100%;
+	}
+	
+	.movie-plot {
+	
+	align-self: center;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	
+	width: 100%;
+	
+	}
+	
+	.movie-plot p {
+	
+	font-size:12px;
+	}
+	
+	.movie-plot form {
+	align-self: center;
+	
+	}
+	
+	
+	.comment-display{width:100%;}
+	
+	
+}
+
+@media screen and (max-width:480px){
+	.movie-details-container {
+	flex-direction: column;
+	}
+	
+	.movie-plot {
+	
+	align-self: center;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	margin:0 !important;
+	
+	width: 100%;
+	
+	}
+	
+	.movie-plot p {
+	
+	font-size:16px;
+	flex:0 1;
+	padding:10px;
+	
+	}
+	
+	.movie-plot form {
+	align-self: center;
+	
+	}
+	
+	.comment-box {
+		margin:0 15px !important;
+		width: 100%;
+	}
+	
+	
+}
 .movie-plot {
 	align-self: flex-end;
 	flex:0 1 20%;
