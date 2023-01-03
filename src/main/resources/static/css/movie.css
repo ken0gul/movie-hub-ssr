@@ -137,7 +137,7 @@ h3 {
 
 .movie-plot {
 	align-self: flex-end;
-	flex: 0 1 20%;
+	flex: 0 1 25%;
 }
 
 .movie-plot p {
@@ -231,6 +231,7 @@ COMMENTS
 #update-form {
 	display: none;
 }
+
 
 .submit-btn {
 	background-color: #f63809;
