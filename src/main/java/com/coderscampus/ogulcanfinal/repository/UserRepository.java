@@ -20,4 +20,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	 void deleteMovieByMovieIdFromMovieUserWatch(Long movieId);
 	
 	User findByUsername(String username);
+	boolean existsByUsername(String username);
 }
