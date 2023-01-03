@@ -84,23 +84,34 @@ label {
 input:focus {
 	border: 1px solid #e50914;
 }
+
+.err-msg {
+color:red;
+font-weight: bold;
+}
 </style>
 </head>
 <body>
 
 	<div class="container">
 		<form action="" method="post">
+		<div th:if="${errorMessage}">
+		
+		<p class="err-msg">[[${errorMessage}]]</p>
+		</div>
 			<div>
 				<label>Username: </label> <input type="text"
 					th:field="${user.username}">
 			</div>
-
+		 
 			<div>
 				<label>Password: </label> <input type="password"
 					th:field="${user.password}">
 			</div>
 
 			<button type="submit">Register</button>
+			
+			
 		</form>
 	</div>
 </body>
