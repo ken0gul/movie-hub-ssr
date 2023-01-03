@@ -48,6 +48,8 @@ h1 {
 
 .movies {
 	padding: 15px 0;
+	max-width: 1440px;
+	margin:0 auto;
 }
 
 .movie-title {
