@@ -31,7 +31,9 @@ public class UserService {
 //	public Set<Movie> findAllByUserId(Long userId) {
 //		return userRepository.findAllByUserId(userId);
 //	}
-	
+	public User findByUsername(String username) {
+		return userRepository.findByUsername(username);
+	}
 	
 	public void deleteMovieByMovieIdFromMovieUserWatch(Long movieId) {
 		userRepository.deleteMovieByMovieIdFromMovieUserWatch(movieId);
