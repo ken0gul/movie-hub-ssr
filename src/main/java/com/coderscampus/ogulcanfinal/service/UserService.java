@@ -38,4 +38,8 @@ public class UserService {
 	public void deleteMovieByMovieIdFromMovieUserWatch(Long movieId) {
 		userRepository.deleteMovieByMovieIdFromMovieUserWatch(movieId);
 	}
+	
+	public boolean usernameExists(String username) {
+		return userRepository.existsByUsername(username);
+	}
 }
