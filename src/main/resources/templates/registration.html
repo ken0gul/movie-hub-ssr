@@ -99,6 +99,10 @@ font-weight: bold;
 		
 		<p class="err-msg">[[${errorMessage}]]</p>
 		</div>
+		
+		<div th:if="${errMsg}">
+			<span class="err-msg">[[${errMsg}]]</span>
+		</div>
 			<div>
 				<label>Username: </label> <input type="text"
 					th:field="${user.username}">
@@ -106,7 +110,7 @@ font-weight: bold;
 		 
 			<div>
 				<label>Password: </label> <input type="password"
-					th:field="${user.password}">
+					th:field="${user.password}" required="required" min="8" max="20">
 			</div>
 
 			<button type="submit">Register</button>
