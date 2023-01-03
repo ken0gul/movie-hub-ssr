@@ -39,8 +39,8 @@
 	<div class="movies">
 		<div class="single-movie-container" th:each="movie : ${movies}">
 			<h3 class="movie-title">[[${movie.Title}]]</h3>
-			<span class="movie-year">[[${movie.Year}]]</span> <img class="poster"
-				th:src="@{${movie.poster}}" /> <a id="see-more-link"
+			<span class="movie-year">[[${movie.Year}]]</span> <a th:href="@{/movie/{movieId}/user/{userId}(movieId=${movie.id},userId=${user.userId})}"><img class="poster"
+				th:src="@{${movie.poster}}" /></a> <a id="see-more-link"
 				th:href="@{/movie/{movieId}/user/{userId}(movieId=${movie.id},userId=${user.userId})}">See
 				more!</a>
 
