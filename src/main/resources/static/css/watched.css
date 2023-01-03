@@ -149,4 +149,7 @@ h3 {text-align: center;color:#f69f09;}
 	display:block;
 	width:100%;
 }
-
+.movie-link {
+	text-decoration: none;
+	color:white;
+}
