@@ -44,6 +44,10 @@ public class RegistrationController {
 			return "registration";
 		}
 		
+		if(user.getPassword().length() < 8) {
+			model.addAttribute("errMsg","Password cannot be less than 8 characters");
+			return "registration";
+		}
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		userService.save(user);
 
