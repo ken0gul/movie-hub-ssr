@@ -40,9 +40,11 @@
 				<form th:action="@{/user/{userId}(userId=${user.userId})}"
 					method="post">
 					<input type="hidden" th:field="${movie.movieId}">
+					<div class="buttons">
 					<button class="add-to-list-btn" type="submit">Add to watch
 						list</button>
 						<a class="go-back-to-movies-btn" href="/movies">Go back to movies</a>
+					</div>
 				</form>
 			</div>
 
