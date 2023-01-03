@@ -32,7 +32,7 @@
 						method="get">
 						<ul th:attr="data-user-id=${user.userId}">
 
-							<li th:attr="data-movie-id=${movie.movieId}"><span>[[${movie.title}]]</span></li>
+							<li th:attr="data-movie-id=${movie.movieId}"><a class="movie-link" th:href="@{/movie/{movieId}/user/{userId}(movieId=${movie.id},userId=${user.userId})}"><span>[[${movie.title}]]</span></a></li>
 						</ul>
 						<button class="watched-btn" type="button">&check;</button>
 					</form>
