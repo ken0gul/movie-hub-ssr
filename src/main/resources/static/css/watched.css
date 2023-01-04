@@ -59,10 +59,21 @@ h2{font-size:36px;margin-left:5px;}
 
 .section-container{
 	display: flex;
+	
 	justify-content: space-around;
 	overflow-y:scroll; 
 	height:100vh;
 	font-size: 130%;
+}
+
+@media screen and (max-width:480px){
+	.section-container {
+		flex-direction: column;
+	}
+	
+	.link-logout:link{
+		text-align: right;
+	}
 }
 
 .section-container::-webkit-scrollbar-track
