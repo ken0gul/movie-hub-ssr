@@ -15,10 +15,15 @@
 <style type="text/css">
 html {
 	font-family: 'Ubuntu', sans-serif;
+	background: black;
 }
 
 body {
-	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin:0;
 }
 
 .container {
@@ -35,14 +40,15 @@ body {
 }
 
 .label {
-	font-weight: bold;
-	color: black;
+	color: white;
 }
 
 .form-container {
-	background-color: rgba(255, 255, 255, 0.87);
+	background-color: rgba(0, 0, 0, 0.87);
+	
 	padding:25px 50px;
 	border-radius: 11px;
+	
 }
 
 form {
@@ -51,7 +57,6 @@ form {
 	align-items: center;
 	justify-content: center;
 	opacity: 1;
-	z-index: 9999 !important;
 }
 
 form>div {
@@ -63,6 +68,7 @@ form>div {
 input[type='text'], input[type='password'] {
 	font-size: 28px;
 	border-radius: 9px;
+	color:white !important;
 }
 
 form>div>label {
@@ -102,7 +108,7 @@ button:hover {
 
 input {
 	background: transparent;
-	color: black !important;
+	
 	outline: gray;
 	padding: 0.3em;
 	outline: gray;
