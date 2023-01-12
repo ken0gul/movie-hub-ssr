@@ -14,16 +14,35 @@
 
 <style type="text/css">
 html {
-	background: black;
-	color: white;
 	font-family: 'Ubuntu', sans-serif;
 }
 
 body {
+	
+}
+
+.container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	background-image: url("/images/img.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	opacity: 0.85;
 	height: 100vh;
+	width: 100vw;
+}
+
+.label {
+	font-weight: bold;
+	color: black;
+}
+
+.form-container {
+	background-color: rgba(255, 255, 255, 0.87);
+	padding:25px 50px;
+	border-radius: 11px;
 }
 
 form {
@@ -31,6 +50,8 @@ form {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	opacity: 1;
+	z-index: 9999 !important;
 }
 
 form>div {
@@ -39,14 +60,14 @@ form>div {
 	margin-bottom: 5px;
 }
 
-input[type='text'],
-input[type='password']
- {
+input[type='text'], input[type='password'] {
 	font-size: 28px;
 }
 
-form > div >  label{font-size:26px !important;margin-bottom:5px;}
-
+form>div>label {
+	font-size: 26px !important;
+	margin-bottom: 5px;
+}
 
 .buttons {
 	display: flex;
@@ -55,7 +76,6 @@ form > div >  label{font-size:26px !important;margin-bottom:5px;}
 	align-items: center;
 	gap: 5px;
 	margin-top: 5px;
-	
 }
 
 button {
@@ -80,18 +100,20 @@ button:hover {
 }
 
 input {
-	background: #121212;
-	color: white;
+	background: transparent;
+	color: black !important;
 	outline: gray;
 	padding: 0.3em;
+	outline: gray;
+	font-weight: bold;
 }
 
 label {
-	font-size: 10px;
+	font-size: 12px;
 }
 
 input:focus {
-	border: 1px solid #e50914;
+	border: 2px solid #e50914;
 }
 </style>
 
@@ -100,25 +122,27 @@ input:focus {
 </head>
 <body>
 
-	<div>
-		<form th:action="@{/login}" method="post">
-			<div>
-				<label for="username">Username:</label> <input type="text"
-					id="username" name="username">
-			</div>
+	<div class="container">
+		<div class="form-container">
+			<form th:action="@{/login}" method="post">
+				<div>
+					<label class="label" for="username">Username:</label> <input
+						type="text" id="username" name="username">
+				</div>
 
-			<div>
-				<label for="password">Password:</label> <input type="password"
-					id="password" name="password">
-			</div>
-			<div class="buttons">
-				<button type="submit">Login</button>
-				<a th:href="@{/users/register}"><button type="button"
-						class="btn-register">Register</button></a>
+				<div>
+					<label class="label" for="password">Password:</label> <input
+						type="password" id="password" name="password">
+				</div>
+				<div class="buttons">
+					<button type="submit">Login</button>
+					<a th:href="@{/users/register}"><button type="button"
+							class="btn-register">Register</button></a>
 
-			</div>
+				</div>
 
-		</form>
+			</form>
+		</div>
 	</div>
 </body>
 </html>
