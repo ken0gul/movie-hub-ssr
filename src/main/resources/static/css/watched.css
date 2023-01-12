@@ -133,6 +133,7 @@ h3 {text-align: center;color:#f69f09;}
 	margin:0 10px;
 }
 
+.list-item {display:flex; align-items: center; gap:10px;}
 .to-watch-list > ul {
 	flex:1;
 }
