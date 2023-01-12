@@ -24,6 +24,15 @@ body {
 	width: 100vw;
 }
 
+
+@media screen and (max-width:580px) {
+	.container {
+	
+	width: 100%;
+	}
+	
+}
+
 .label {
 	color: white;
 }
