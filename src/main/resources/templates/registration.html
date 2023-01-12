@@ -28,6 +28,25 @@ form {
 	justify-content: center;
 }
 
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-image: url("/images/img.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	opacity: 0.85;
+	height: 100vh;
+	width: 100vw;
+}
+
+.form-container {
+	background-color: rgba(255, 255, 255, 0.87);
+	padding:30px 50px;
+	border-radius: 11px;
+}
+
 form>div {
 	display: flex;
 	flex-direction: column;
@@ -94,6 +113,8 @@ font-weight: bold;
 <body>
 
 	<div class="container">
+	
+		<div class="form-container">
 		<form action="" method="post">
 		<div th:if="${errorMessage}">
 		
@@ -117,6 +138,7 @@ font-weight: bold;
 			
 			
 		</form>
+		</div>
 	</div>
 </body>
 </html>
