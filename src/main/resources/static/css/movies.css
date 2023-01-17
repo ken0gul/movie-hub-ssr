@@ -21,6 +21,12 @@ body {
 	position: relative;
 }
 
+#year-input{
+	width:200px;
+}
+
+
+
 input {
 	all: unset;
 	background-color: #fafaf9;
@@ -101,7 +107,7 @@ h1 {
 	}
 }
 
-@media screen and (max-width:450px) {
+@media screen and (max-width:480px) {
 	.movie-title {
 		font-size: 28px;
 	}
@@ -116,6 +122,8 @@ h1 {
 		font-size: 26px;
 		font-style: italic;
 	}
+	
+	
 }
 
 .search-container {
