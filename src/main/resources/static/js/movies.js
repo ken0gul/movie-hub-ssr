@@ -1,8 +1,11 @@
 // Selecting elements
 let container = document.querySelector('.container');
-let input = document.querySelector('input');
+let input = document.querySelector('#title-input');
+let yearInput = document.querySelector('#year-input');
 let searchBtn = document.querySelector('#search-btn');
 let movies = document.querySelector('.movies');
+let moviesAll = document.querySelectorAll('single-movie-container');
+
 
 
 
@@ -18,8 +21,10 @@ input.addEventListener('keydown', e => {
 
 });
 function getData(){
+console.log(yearInput.value);
+console.log(input.value);
     let movie = {};
-fetch(`https://www.omdbapi.com/?apikey=da216f55&t="${input.value}"`).then(response => {
+fetch(`https://www.omdbapi.com/?apikey=da216f55&t="${input.value}"&y=${yearInput.value}`).then(response => {
 if(response.ok){
     return response.json();
 }
