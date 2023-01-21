@@ -14,7 +14,8 @@
 	rel="stylesheet">
 </head>
 <body>
-
+	<input class="hidden-user" th:attr="data-user-id=${user.userId}" type="hidden">
+	<input class="hidden-movie" th:attr="data-movie-id=${movie.movieId}" type="hidden">
 	<div class="container">
 		<div class="movie-details-container">
 			<div class="single-movie-container">
