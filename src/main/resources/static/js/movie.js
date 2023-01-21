@@ -13,9 +13,35 @@ let userEndPointId=userId.getAttribute('data-user-id');
 let commentEndPointId=commentId.getAttribute('data-comment-id');
 let editBtns = document.querySelectorAll('.btn-edit');
 let updateText= document.querySelector('#update-text');
+let likeBtn = document.querySelector('.like-btn');
+let dislikeBtn = document.querySelector('.dislike-btn');
+let likeContainer = document.querySelector('.like-container');
  // FORMS EDIT - SUBMIT
 
 
+ likeBtn.addEventListener('click', (e)=> {
+    console.log("Clicked");
+  	console.log(e);
+	
+
+    fetch(`/movie/${movieEndPointId}/user/${userEndPointId}/like`, {
+        method:'POST',
+    }).then(response => response.json()).then(data => {
+        window.location.reload();
+        console.log(data);
+
+    });
+ })
+
+
+
+ dislikeBtn.addEventListener('click',e => {
+    fetch(`/movie/${movieEndPointId}/user/${userEndPointId}/unlike`, {
+        method:'POST',
+    }).then(response => response.json()).then(data => {
+        window.location.reload();
+    })
+ })
 
 
  editBtns.forEach(btn => {
