@@ -28,7 +28,7 @@ body {
 }
 
 
-@media screen and (max-width:580px) {
+@media screen and (max-width:580px and min-width:380px) {
 
 	.form-container {
 	
