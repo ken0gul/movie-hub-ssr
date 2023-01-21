@@ -296,3 +296,25 @@ COMMENTS
 .comment_display::-webkit-scrollbar-thumb {
 	background-color: #000000;
 }
+
+.like-container > div{
+	display: flex;
+	justify-content: center;
+	align-items: center; 
+	gap:15px;
+}
+
+.like-container{
+	display: flex;
+	justify-content: flex-start;
+}
+
+
+.like-container button{
+	cursor: pointer;
+}
+
+.number_of_likes{
+	font-size:28px;
+	color:white;
+}
