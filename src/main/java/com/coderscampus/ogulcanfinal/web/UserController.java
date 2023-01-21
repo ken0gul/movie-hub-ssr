@@ -17,6 +17,7 @@ import com.coderscampus.ogulcanfinal.domain.Comment;
 import com.coderscampus.ogulcanfinal.domain.Movie;
 import com.coderscampus.ogulcanfinal.domain.User;
 import com.coderscampus.ogulcanfinal.service.CommentService;
+import com.coderscampus.ogulcanfinal.service.LikeService;
 import com.coderscampus.ogulcanfinal.service.MovieService;
 import com.coderscampus.ogulcanfinal.service.UserService;
 
@@ -31,9 +32,15 @@ public class UserController {
 
 	@Autowired
 	private CommentService commentService;
+	
+	@Autowired
+	private LikeService likeService;
 
 	@GetMapping("/movie/{movieId}/user/{userId}")
 	public String getMovie(ModelMap model, @PathVariable Long movieId, @PathVariable Long userId) {
+		// Let's load likes
+		
+		model.put("likes", likeService.getNumberOfLikes(movieId));
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User authenticatedUser = (User)authentication.getPrincipal();
 		System.out.println("Auth User: " + authenticatedUser);
@@ -90,6 +97,8 @@ public class UserController {
 
 		return comment;
 	}
+	
+
 	
 	
 
