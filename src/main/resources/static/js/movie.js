@@ -16,7 +16,13 @@ let updateText= document.querySelector('#update-text');
 let likeBtn = document.querySelector('.like-btn');
 let dislikeBtn = document.querySelector('.dislike-btn');
 let likeContainer = document.querySelector('.like-container');
+
+
+let hiddenUser = document.querySelector('input[data-user-id]').getAttribute('data-user-id');
+let hiddenMovie = document.querySelector('input[data-movie-id]').getAttribute('data-movie-id');
  // FORMS EDIT - SUBMIT
+
+
 
 
  likeBtn.addEventListener('click', (e)=> {
@@ -24,7 +30,7 @@ let likeContainer = document.querySelector('.like-container');
   	console.log(e);
 	
 
-    fetch(`/movie/${movieEndPointId}/user/${userEndPointId}/like`, {
+    fetch(`/movie/${hiddenMovie}/user/${hiddenUser}/like`, {
         method:'POST',
     }).then(response => response.json()).then(data => {
         window.location.reload();
@@ -36,7 +42,7 @@ let likeContainer = document.querySelector('.like-container');
 
 
  dislikeBtn.addEventListener('click',e => {
-    fetch(`/movie/${movieEndPointId}/user/${userEndPointId}/unlike`, {
+    fetch(`/movie/${hiddenMovie}/user/${hiddenUser}/unlike`, {
         method:'POST',
     }).then(response => response.json()).then(data => {
         window.location.reload();
