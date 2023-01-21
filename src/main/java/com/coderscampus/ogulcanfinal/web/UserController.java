@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,9 +38,10 @@ public class UserController {
 	private LikeService likeService;
 
 	@GetMapping("/movie/{movieId}/user/{userId}")
-	public String getMovie(ModelMap model, @PathVariable Long movieId, @PathVariable Long userId) {
+	public String getMovie(ModelMap model, @PathVariable Long movieId, @PathVariable Long userId, Model m) {
 		// Let's load likes
-		
+		m.addAttribute("userId", userId);
+		m.addAttribute("movieId", movieId);
 		model.put("likes", likeService.getNumberOfLikes(movieId));
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User authenticatedUser = (User)authentication.getPrincipal();
