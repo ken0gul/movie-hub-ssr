@@ -2,6 +2,7 @@ package com.coderscampus.ogulcanfinal.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,11 +17,13 @@ public class LikeController {
 	private LikeService likeService;
 	
 	
+
+	
 	
 	@PostMapping("/movie/{movieId}/user/{userId}/like")
-	public ResponseEntity<Long>like(@PathVariable Long movieId, @PathVariable Long userId){
+	public ResponseEntity<Long>like(@PathVariable Long movieId, @PathVariable Long userId, ModelMap model){
 
-			
+		model.put("likes", likeService.getNumberOfLikes(movieId));
 		likeService.like(userId, movieId);
 		Long numberOfLikes = likeService.getNumberOfLikes(movieId);
 		System.out.println(numberOfLikes);
