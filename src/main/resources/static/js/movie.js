@@ -7,7 +7,14 @@ let updateForm = document.querySelector('#update-form');
 let commentText = document.querySelector('.comment-text');
 let movieId = document.querySelector('input[data-movie-id]');
 let userId = document.querySelector('button[data-user-id]');
+if(userId == null || movieId == null){
+
+userId=document.querySelector('input[data-user-id]');
+movieId=document.querySelector('input[data-movie-id]');
+
+}
 let commentId= document.querySelector('input[data-comment-id]');
+
 let movieEndPointId = movieId.getAttribute('data-movie-id');
 let userEndPointId=userId.getAttribute('data-user-id');
 let commentEndPointId=commentId.getAttribute('data-comment-id');
@@ -16,10 +23,15 @@ let updateText= document.querySelector('#update-text');
 let likeBtn = document.querySelector('.like-btn');
 let dislikeBtn = document.querySelector('.dislike-btn');
 let likeContainer = document.querySelector('.like-container');
+let hiddenUser;
+let hiddenMovie;
 
 
-let hiddenUser = document.querySelector('input[data-user-id]').getAttribute('data-user-id');
-let hiddenMovie = document.querySelector('input[data-movie-id]').getAttribute('data-movie-id');
+
+window.addEventListener('load', () =>{
+ hiddenUser = document.querySelector('input[data-user-id]').getAttribute('data-user-id');
+ hiddenMovie = document.querySelector('input[data-movie-id]').getAttribute('data-movie-id');
+});
  // FORMS EDIT - SUBMIT
 
 
