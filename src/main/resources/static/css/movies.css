@@ -15,10 +15,16 @@ body {
 }
 
 .header {
-	margin-bottom: 30px;
+	margin-bottom: 35px;
 	text-align: center;
 	color: white;
 	position: relative;
+}
+
+.header h1 {
+	font-size: 26px;
+	margin-bottom: 15px;
+	margin-top:15px;
 }
 
 #year-input{
@@ -146,7 +152,7 @@ h1 {
 }
 
 #account-icon {
-	width: 24px;
+	width: 30px;
 	position: absolute;
 	right: 0;
 	top: 0;

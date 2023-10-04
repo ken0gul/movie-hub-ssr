@@ -18,7 +18,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-image: url("/images/img.jpg");
+	background-image: url("/images/background.webp");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -31,20 +31,18 @@ body {
 @media screen and (max-width:580px and min-width:380px) {
 
 	.form-container {
-	
 	padding:0 20px;
 	}
 	
 	input[type='text'], input[type='password'] {
 	font-size: 22px;
-}
+	}
 
-.label {
-	margin-left:15px;
-	font-size:16px !important;
-}
-
-
+	.label {
+		margin-left:15px;
+		font-size:16px !important;
+		
+	}
 
 	
 }
@@ -76,7 +74,7 @@ form>div {
 }
 
 input[type='text'], input[type='password'] {
-	font-size: 28px;
+	font-size: 22px;
 	border-radius: 9px;
 	color:white !important;
 }
@@ -89,13 +87,15 @@ form>div>label {
 .buttons {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
 	gap: 5px;
 	margin-top: 5px;
+	width:100%;
 }
 
-button {
+button,
+a {
 	background-color: #e50914;
 	text-decoration: none;
 	color: white;

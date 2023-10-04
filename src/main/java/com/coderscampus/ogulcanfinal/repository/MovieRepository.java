@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import com.coderscampus.ogulcanfinal.domain.Movie;
 
-@Repository
 public interface MovieRepository extends JpaRepository<Movie, Long> {
 
 	Optional<Movie> findById(Long id);

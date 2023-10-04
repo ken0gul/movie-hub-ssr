@@ -25,8 +25,6 @@ public class MovieController {
 	@Autowired
 	private MovieService movieService;
 
-	@Autowired
-	private UserService userService;
 	
 	@GetMapping("")
 	public String rootPage() {
@@ -39,13 +37,12 @@ public class MovieController {
 		Set<Movie> allUniqueMovies = allMovies.stream().collect(Collectors.toSet());
 		model.put("movies", allUniqueMovies);
 
-		List<User> users = userService.findAll();
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User authenticatedUser = (User)authentication.getPrincipal();
-		System.out.println(authenticatedUser);
+		
 		
 		if(authenticatedUser.getUserId() == null) {
-			return "movies";
+			return "login";
 		}
 			
 

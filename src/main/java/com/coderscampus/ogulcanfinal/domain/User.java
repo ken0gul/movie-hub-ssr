@@ -62,7 +62,7 @@ public class User {
 	@OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST,CascadeType.MERGE})
 	private List<Movie> watchedList;
 
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinTable(name = "movie_user",
     joinColumns = @JoinColumn(name = "user_id"), 
     inverseJoinColumns = @JoinColumn(name = "movie_id"))
