@@ -27,7 +27,6 @@ public class LoginController {
 
 	@PostMapping("/login")
 	public ResponseEntity<HttpStatus> login(@RequestBody User userModel) throws Exception {
-		System.out.println(userModel);
 		Authentication authentication;
 
 		try {

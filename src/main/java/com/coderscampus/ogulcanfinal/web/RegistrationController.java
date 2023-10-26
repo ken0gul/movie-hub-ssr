@@ -3,6 +3,11 @@ package com.coderscampus.ogulcanfinal.web;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +26,8 @@ public class RegistrationController {
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
-
+	@Autowired
+	private AuthenticationManager authenticationManager;
 	@Autowired
 	private UserService userService;
 
@@ -35,23 +41,31 @@ public class RegistrationController {
 	}
 
 	@PostMapping("/register")
-	public String createUser(@ModelAttribute User user, Model model) {
-		
+	public String createUser(@ModelAttribute User user, Model model) throws Exception {
+
+	
 		boolean isUsernameExists = userService.usernameExists(user.getUsername());
-		
-		if(isUsernameExists) {
-			model.addAttribute("errorMessage","Username already exists");
+
+		if (isUsernameExists) {
+			model.addAttribute("errorMessage", "Username already exists");
 			return "registration";
 		}
-		
-		if(user.getPassword().length() < 8) {
-			model.addAttribute("errMsg","Password cannot be less than 8 characters");
+
+		if (user.getPassword().length() < 8) {
+			model.addAttribute("errMsg", "Password cannot be less than 8 characters");
 			return "registration";
 		}
+
+//		try {
+//			Authentication authentication = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
+//			SecurityContextHolder.getContext().setAuthentication(authentication);
+//		} catch (BadCredentialsException e) {
+//			throw new Exception("Invalid credentials");
+//		}
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		userService.save(user);
 
-		return "redirect:/login";
+		return "redirect:/movies";
 	}
 
 }
