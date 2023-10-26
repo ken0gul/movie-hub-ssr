@@ -35,6 +35,7 @@ public class MovieController {
 	public String getMovies(ModelMap model) {
 		List<Movie> allMovies = movieService.findAll();
 		Set<Movie> allUniqueMovies = allMovies.stream().collect(Collectors.toSet());
+		allUniqueMovies.forEach(movie -> System.out.println(movie.getPoster()));
 		model.put("movies", allUniqueMovies);
 
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

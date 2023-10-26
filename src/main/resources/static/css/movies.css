@@ -16,19 +16,28 @@ body {
 
 .header {
 	margin-bottom: 35px;
+	margin-top: 15px;
 	text-align: center;
 	color: white;
-	position: relative;
+	
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .header h1 {
 	font-size: 26px;
 	margin-bottom: 15px;
 	margin-top:15px;
+	text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 1.3px;
+  text-align: left;
+  font-style: italic;
 }
 
 #year-input{
-	width:200px;
+	width:8em;
 }
 
 
@@ -38,8 +47,9 @@ input {
 	background-color: #fafaf9;
 	color: black;
 	font-size: 14px;
-	width: 40%;
+	width: 30%;
 	height: 40px;
+	border-radius: 11px;
 }
 
 input::placeholder {
@@ -121,14 +131,30 @@ h1 {
 		font-size: 35px;
 	}
 	.search-container>input[type='text'] {
-		font-size: 38px !important;
+		font-size: 12px !important;
+		width: 100%;
+	}
+	
+	.search-container {
+		flex-direction: column;
 		width: 100%;
 	}
 	input::placeholder {
-		font-size: 26px;
+		font-size: 16px;
 		font-style: italic;
 	}
+	.header {
+		flex-direction: column;
+		justify-content: center;
+		position: relative;
+	}
 	
+	#account-icon {
+		position: absolute;
+		right: 0;
+		top: 0;
+		transform: translate(-50%, 50%);
+	}
 	
 }
 
@@ -137,11 +163,14 @@ h1 {
 	justify-content: center;
 	align-items: center;
 	gap: 5px;
+	flex-grow:2;
+	
 }
 
 #search-icon {
 	width: 24px;
 	height: 24px;
+	cursor: pointer;
 }
 
 #search-btn {
@@ -153,10 +182,8 @@ h1 {
 
 #account-icon {
 	width: 30px;
-	position: absolute;
-	right: 0;
-	top: 0;
-	transform: translate(-50%, 50%);
+
+
 	color: white;
 }
 

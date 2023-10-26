@@ -9,30 +9,26 @@ let moviesAll = document.querySelectorAll('single-movie-container');
 
 
 
-
-
-
-
-
-searchBtn.addEventListener('click',getData)
+searchBtn.addEventListener('click', getData)
 input.addEventListener('keydown', e => {
-	console.log(e)
-	if(e.keyCode == '13') getData();
+	if (e.keyCode == '13') getData();
 
 });
-function getData(){
-console.log(yearInput.value);
-console.log(input.value);
-    let movie = {};
-fetch(`https://www.omdbapi.com/?apikey=da216f55&t="${input.value}"&y=${yearInput.value}`).then(response => {
-if(response.ok){
-    return response.json();
-}
-}).then(data => {
-    console.log(data)
-   movie = data;
-   if(data.Response == 'False') return;
-   let img = `
+function getData() {
+
+
+	fetch(`https://www.omdbapi.com/?apikey=da216f55&t="${input.value}"&y=${yearInput.value}`).then(response => {
+		if (response.ok) {
+			return response.json();
+		}
+	}).then(data => {
+
+
+		if (data.Response == 'False') return;
+		if (data.Poster === 'N/A') {
+			data.poster = 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/640px-Image_not_available.png'
+		}
+		let img = `
    <div class="single-movie-container">
    <h3>${data.Title}</h3>
    <span>${data.Year}</span>
@@ -44,25 +40,25 @@ if(response.ok){
    
    
    `;
-    
-   movies.innerHTML += img;
 
-   fetch('/movies',
-   {
+		movies.innerHTML += img;
 
-       method:'POST',
-       headers:{
-           'Content-Type':'application/JSON'
-       },
-       body:JSON.stringify(data)
+		fetch('/movies',
+			{
 
-
-   }
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/JSON'
+				},
+				body: JSON.stringify(data)
 
 
+			}
 
-).then(response => response.json()).then(data => {
-   window.location.reload();
-});
-});
+
+
+		).then(response => response.json()).then(data => {
+			window.location.reload();
+		});
+	});
 }

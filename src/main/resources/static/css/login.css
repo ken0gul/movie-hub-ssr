@@ -52,7 +52,7 @@ body {
 }
 
 .form-container {
-	background-color: rgba(0, 0, 0, 0.87);
+	
 	
 	padding:25px 50px;
 	border-radius: 11px;
@@ -74,10 +74,15 @@ form>div {
 }
 
 input[type='text'], input[type='password'] {
+	background-color: rgba(0, 0, 0, 0.37);
 	font-size: 22px;
 	border-radius: 9px;
 	color:white !important;
+	font-weight: 300;
+	font-style: italic;
 }
+
+
 
 form>div>label {
 	font-size: 26px !important;
@@ -96,14 +101,19 @@ form>div>label {
 
 button,
 a {
-	background-color: #e50914;
+	
 	text-decoration: none;
 	color: white;
-	border: 1px solid transparent;
 	border-radius: 5px;
 	cursor: pointer;
-	font-size: 26px !important;
+	font-size: 22px !important;
+	padding: 4px 6px;
 	width: 100%;
+	border: none;
+}
+
+.login-btn {
+	background-color: #e50914;
 }
 
 button:hover {
@@ -112,8 +122,8 @@ button:hover {
 }
 
 .btn-register {
-	border: 1px solid grey;
 	background-color: #E6BB09;
+	
 }
 
 input {

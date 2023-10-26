@@ -23,16 +23,16 @@
 		<div class="form-container">
 			<form th:action="@{/login}" method="post">
 				<div class="form-control">
-					<label class="label" for="username">Username:</label> <input
-						type="text" id="username" name="username">
+					<label class="label" for="username"></label> <input
+						type="text" id="username" name="username" placeholder="username">
 				</div>
 
 				<div class="form-control">
-					<label class="label" for="password">Password:</label> <input
-						type="password" id="password" name="password">
+					<label class="label" for="password"></label> <input
+						type="password" id="password" name="password" placeholder="password">
 				</div>
 				<div class="buttons">
-					<button type="submit">Login</button>
+					<button type="submit" class="login-btn">Login</button>
 					<a th:href="@{/users/register}"><button type="button"
 							class="btn-register">Register</button></a>
 
