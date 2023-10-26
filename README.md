@@ -1,18 +1,52 @@
-# ogulcan-final-project
-## A Full Stack CRUD Web Application
+# MovieHub-SSR
 
-### Technologies
-- Spring MVC, Spring Security, MySQL, Hibernate, Thymeleaf, JavaScript, Java, HTML, CSS
+MovieHub-SSR is a server-side rendered movie library web application that allows users to search for movies, create watch-lists, like their favorite films, and engage with a community of movie enthusiasts through comments. It's the perfect place for movie lovers to explore, organize, and interact with their cinematic interests.
 
-### The purpose of the application
-This web application enables users to log in to their accounts and query movies and TV shows from a public API. Content is displayed as a collection of grids, and users can add movies to their to-watch list and mark them as watched, which moves them to a "Movies Already Watched" container. Users can also post comments on movies/TV shows as logged-in users, and edit their comments on the same page. The application is desktop-based but is responsive to different screen sizes. The application currently only supports a dark theme.Watched" container.
+## Features
+
+- **Movie Search:** Easily search for your favorite movies by title, or year.
+
+- **Watch-List:** Add movies to your watch-list to keep track of what you want to watch later.
+
+- **Like Movies:** Express your love for movies by liking them.
+
+- **User Comments:** Engage with the community by leaving comments and discussing movies.
+
+- **User Authentication and Authorization:** Secure your account and data with Spring Security, providing user authentication and authorization features.
+
+- **ORM with Hibernate:** Leverage the power of Hibernate for Object-Relational Mapping to work with your database efficiently.
+
+## Technology Stack
+
+- **Server-Side Rendering (SSR):** The application is built using server-side rendering with Thymeleaf for a seamless user experience.
+
+- **Java Spring Boot:** The backend is powered by Java Spring Boot for robust and efficient server-side logic.
+
+- **Spring Security:** Ensure user authentication and authorization with Spring Security.
+
+- **Hibernate:** Utilize Hibernate for efficient Object-Relational Mapping.
+
+- **Database:** We use a relational database(MySQL) to store movie information, user data, likes, and comments.
+
+## Getting Started
+
+To get started with MovieHub-SSR on your local machine, follow these steps:
+
+1. Clone this repository to your local environment.
+
+2. Set up the required database and configure the application properties.
+
+3. Build and run the project using your favorite Java development tools.
+
+4. Access the application in your web browser at [http://localhost:8080](http://localhost:8080).
 
 
-### Additional features
+## License
 
-    - User registration checks for username/password validity and uniqueness
-    - Users cannot add a movie to /movies endpoint if it already exists in the database
-    - Like/Dislike button 
-    
+This project is licensed under the [MIT License](LICENSE.md).
 
-Overall, the To-Watch web application provides an efficient and user-friendly way for users to keep track of their movie/TV show watchlist and share their thoughts with other users.
+## Contact
+
+If you have any questions or feedback, feel free to reach out to us at [ogulcanken@gmail.com](mailto:ogulcanken@gmail.com).
+
+Happy movie browsing and enjoy using MovieHub-SSR!
